@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /rocketmq-service-bank1
+
+spring:
+  application:
+    name: rocketmq-service-bank1
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_distributed_transaction_rocketmq_bank1?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: root
+
+rocketmq:
+  producer:
+    group: producer_bank1
+  name-server: 127.0.0.1:9876

@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /service-bank1
+
+spring:
+  application:
+    name: service-bank1
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    alibaba:
+      seata:
+        tx-service-group: service-bank
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_distributed_transaction_seata_bank1?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: root
+
+seata:
+  service:
+    grouplist: 127.0.0.1:9999
+
+logging:
+  level:
+    com.wez.seata.twopc.client.Bank2Client: off

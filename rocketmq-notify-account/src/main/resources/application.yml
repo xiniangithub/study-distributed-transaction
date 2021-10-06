@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /rocketmq-notify-account
+
+spring:
+  application:
+    name: rocketmq-notify-account
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_distributed_transaction_rocketmq_notify_account?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: root
+
+rocketmq:
+  producer:
+    group: rocketmq_notify_account
+  name-server: 127.0.0.1:9876
+
+logging:
+  level:
+    com.wez.rocketmq.client.PayClient: debug
