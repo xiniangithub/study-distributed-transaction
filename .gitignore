@@ -1,3 +1,4 @@
 # Project exclude paths
 /rocketmq-notify-account/target/
 /rocketmq-notify-pay/target/
+/.idea/
